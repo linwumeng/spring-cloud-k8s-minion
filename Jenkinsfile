@@ -66,7 +66,7 @@ pipeline {
       }
       stage('Promote to Environments') {
         when {
-          branch 'develop'
+          branch 'master'
         }
         steps {
           dir ('./charts/spring-cloud-k8s-minion') {
