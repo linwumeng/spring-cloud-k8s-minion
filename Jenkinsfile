@@ -3,7 +3,7 @@ pipeline {
       label "jenkins-maven"
     }
     environment {
-      ORG               = 'salaboy'
+      ORG               = 'linwumeng'
       APP_NAME          = 'spring-cloud-k8s-minion'
       CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
     }
@@ -59,7 +59,6 @@ pipeline {
             sh 'mvn clean deploy'
 
             sh 'export VERSION=`cat VERSION` && skaffold build -f skaffold.yaml'
-
 
             sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:\$(cat VERSION)"
           }
