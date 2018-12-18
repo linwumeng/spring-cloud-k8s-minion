@@ -6,7 +6,7 @@ pipeline {
       ORG               = 'jx'
       APP_NAME          = 'spring-cloud-k8s-minion'
       CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
-      DOCKER_CREDS = credentials('jenkins-dockercfg-c7sqt')
+      DOCKER_CREDS = credentials('jenkins-dockercfg')
     }
     stages {
       stage('CI Build and push snapshot') {
