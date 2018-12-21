@@ -21,7 +21,7 @@ pipeline {
           container('maven') {
             sh "mvn versions:set -DnewVersion=$PREVIEW_VERSION"
             sh "mvn install"
-            sh 'export VERSION=$PREVIEW_VERSION JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST=172.30.1.1 JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT=5000 && skaffold build -f skaffold.yaml'
+            sh 'export VERSION=$PREVIEW_VERSION JENKINS_X_DOCKER_REGISTRY_SERVICE_HOST=docker-registry.default.svc JENKINS_X_DOCKER_REGISTRY_SERVICE_PORT=5000 && skaffold build -f skaffold.yaml'
 
 
             sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:$PREVIEW_VERSION"
