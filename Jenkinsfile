@@ -16,6 +16,7 @@ pipeline {
           PREVIEW_VERSION = "0.0.$BUILD_NUMBER-SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER"
           PREVIEW_NAMESPACE = "$APP_NAME-$BRANCH_NAME".toLowerCase()
           HELM_RELEASE = "$PREVIEW_NAMESPACE".toLowerCase()
+          CHART_REPOSITORY = "http://jenkins-x-chartmuseum-jx.192.168.42.192.nip.io"
         }
         steps {
           container('maven') {
