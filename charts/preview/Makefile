@@ -15,4 +15,5 @@ else
 	exit -1
 endif
 	echo "  version: $(PREVIEW_VERSION)" >> requirements.yaml
+	helm repo list
 	jx step helm build --log-level='debug'
