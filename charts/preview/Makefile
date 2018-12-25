@@ -15,6 +15,8 @@ else
 	exit -1
 endif
 	echo "  version: $(PREVIEW_VERSION)" >> requirements.yaml
+	mkdir -p /home/jenkins/.helm/repository
+	curl -x http://192.168.0.105:37103 https://kubernetes-charts.storage.googleapis.com/index.yaml -o ~/.helm/repository/repositories.yaml
 	helm init --client-only
 	helm repo list
 	jx step helm build --log-level='debug'
