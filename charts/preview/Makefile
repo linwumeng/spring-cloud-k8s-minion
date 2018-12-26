@@ -15,8 +15,6 @@ else
 	exit -1
 endif
 	echo "  version: $(PREVIEW_VERSION)" >> requirements.yaml
-	export http_proxy=http://192.168.0.105:37103
-	export https_proxy=http://192.168.0.105:37103
-	helm init --client-only
+	http_proxy=http://192.168.0.105:37103 https_proxy=http://192.168.0.105:37103 && helm init --client-only
 	helm repo list
 	jx step helm build --log-level='debug'
